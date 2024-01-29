@@ -1,13 +1,24 @@
-
-## Zippy URL Shortening API Documentation
+# Zippy URL Shortening API Documentation
 
 Zippy is a minimalist and efficient URL shortening service designed for simplicity and speed. This documentation provides a comprehensive guide on how to use the API for shortening long URLs into clean and shareable links.
 
 ### Production URL
 
-To access the Zippy URL shortening service, please use the following production URL:
+An Instance haven't been made live untill now. You can host it as per your needs!
 
-- **Production URL**: [https://zippy.up.railway.app/](https://zippy.up.railway.app/)
+### Self-Hosting
+
+- **Requirements**:
+  - **Node.js**: Version 14 or higher
+  - **NPM**: Version 9 or higher
+
+- **Getting latest files**:
+  - **Using Git**: Type `git clone https://github.com/AaravMehta59/zippy.git` in your terminal.
+  - **Mannual Labour**: Download the latest zip, and upzip it in your desired location.
+
+- **How to start on your machine**
+  - **Windows**: Open `start.bat` on your computer and let the magic happen! The server will start on port 3000
+  - **Other OS**: Open your terminal and type `npm install && node index.js` and run it! The server will start on port 3000
 
 ### API Endpoints
 
@@ -31,37 +42,44 @@ To access the Zippy URL shortening service, please use the following production 
 
 - **Example 1: For Custom ShortURL**:
   - **Request**:
+
     ```json
     {
       "url": "https://example.com",
       "shorturl": "mycustomshorturl"
     }
     ```
+
   - **Response**:
+
     ```json
     {
       "message": "Short URL created successfully",
       "original_url": "https://example.com",
-      "short_url": "https://lz.linkzip.co/mycustomshorturl"
+      "short_url": "https://localhost:3000/mycustomshorturl"
     }
     ```
 
 - **Example 2: For Random Short URL**:
   - **Request**:
+
     ```json
     {
       "url": "https://example.com",
       "randomUrl":"true"
     }
     ```
+
   - **Response**:
+
     ```json
     {
       "info": "Short Url created successfully",
       "original_url": "https://example.com",
-      "short_url": "https://lz.linkzip.co/8ae6de"
+      "short_url": "https://localhost:3000/8ae6de"
     }
     ```
+
 #### Endpoint: GET /:url
 
 - **Description**: Redirect to the original URL associated with the provided short URL.
@@ -80,7 +98,7 @@ To access the Zippy URL shortening service, please use the following production 
 
 - **Example**:
   - **Request**:
-    - Accessing `https://zippy.up.railway.app/mycustomshorturl` will redirect to the original URL associated with the short URL.
+    - Accessing `https://localhost:3000/mycustomshorturl` will redirect to the original URL associated with the short URL.
 
 #### Endpoint: GET /
 
@@ -93,4 +111,3 @@ To access the Zippy URL shortening service, please use the following production 
 - **Response**:
   - **Success (HTTP 200 OK)**:
     - A plain text response containing the welcome message.
-
